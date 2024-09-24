@@ -6,17 +6,16 @@ def main():
 
 
 def attention_check() -> bool:
-    val_x = 10 - ra.randint(1,9)
-    val_y = 10 -  ra.randint(1,9)
+
 
     try:
-        answer = int(input(f"To test your keyboard please solve the following sum {val_x} - {val_y}:"))
+        answer = int(input(f"To test your keyboard please solve the following sum 7 - 2: "))
     except ValueError as e:
         print(
             "Please make sure you enter a single numeric charachter"
             )
 
-    return answer == val_x - val_y
+    return answer == 7 - 2
 
 
 if __name__ == '__main__':
