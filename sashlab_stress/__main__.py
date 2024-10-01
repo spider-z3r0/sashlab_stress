@@ -9,8 +9,8 @@ from .trial import trial
 from .Participant import Participant, MakeParticipant
 from .difficulty_manager import DifficultyManager
 from .RoundInfo import Round
-
-
+from .log_rounds import log_session
+import pathlib as pl
 
 
 def main():
@@ -19,6 +19,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run the app with optional parameters.")
     parser.add_argument("--time-limit", type=int, default=300, help="Time limit for the session in seconds")
     parser.add_argument("--trial-time", type=int, default=15, help="Number of seconds before each individual trial timesout from a lack of interaction")
+    parser.add_argument("--path", type=pl.Path, default=pl.Path().cwd(), help="The path where the session data will be saved")
     args = parser.parse_args()
 
 
@@ -82,12 +83,7 @@ def main():
             print("This activity is finished")
             break
 
-    for i,d in enumerate(rounds):
-        print(i, d.to_dict())
-
-def log_session(rounds: list[dict]):
-    pass
-
+    log_session(participant, rounds, args.path)
 
 if __name__ == "__main__":
     main()

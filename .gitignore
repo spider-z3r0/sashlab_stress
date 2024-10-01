@@ -164,4 +164,20 @@ cython_debug/
 #My stuff
 ./.venv
 ./scratch.*
+./dist/
+*__pycache__
+# Python cache directories
+__pycache__/
+*.py[cod]
+
+# Mypy cache
+.mypy_cache/
+
+# Virtual environment
+.venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
 

@@ -1,3 +1,4 @@
+
 [project]
 name = "sashlab_stress"
 version = "0.1.0"
@@ -12,6 +13,20 @@ dependencies = [
     "pandas>=2.2.3",
 ]
 
+authors = [
+    {name = "Kevin O'Malley", email = "kevomalley743@gmail.com"},
+    {name = "Sandra O'Brien", email = "sandra.obrien@ul.ie"},
+]
+
+license = {text = "MIT"}
+keywords = ["stress", "psychology", "CLI"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: windows 10/windows 11",
+]
+
+    
 [project.scripts]
 sashlab_stress = "sashlab_stress.__main__:main"
 

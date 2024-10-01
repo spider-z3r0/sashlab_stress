@@ -11,7 +11,7 @@ import csv
 
 
 def main():
-    print("loggin")
+    print("testin' loggin'")
     start = datetime.now()
     d = DifficultyManager()
     sleep(3)
