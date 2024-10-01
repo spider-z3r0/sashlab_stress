@@ -30,10 +30,15 @@ Ensure you have Python 3.12 or newer. To install the CLI, run:
 pip install sashlab-stress
 ```
 ## Usage
-You can run the main functionality of **SASHLab Stress** using the following command:
+For the best results please make sure that you have pointed your terminal to the folder where you would like the participants data to be stored
 
 ```{shell}
-sashlab_stress [options]
+cd <path/to/your/project/data>
+```
+You can run the main functionality of **SASHLab Stress** using the following command with the [default options](#options) :
+
+```{shell}
+sashlab_stress 
 ```
 
 ### Examples
