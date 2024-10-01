@@ -13,6 +13,8 @@ def main():
         print(f"{k} = {v}")
     test2 = MakeParticipant()
     print(repr(test2))
+    print(type(test2.start_time))
+
 
 
 class Participant:
@@ -46,9 +48,9 @@ class Participant:
     def to_dict(self) -> dict[str, tuple[str, int, datetime, int]]:
         return {
             "id": self.id,
-            "len_id": len(self.id),
-            "start_time": self.start_time,
+            "len_id": int(len(self.id)),
             "attention_fails": self.attention_fails,
+            "start_time": self.start_time,
         }
 
 

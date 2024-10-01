@@ -1,4 +1,5 @@
 
+
 def main():
     d = DifficultyManager()
     print(d.get_difficulty())
@@ -29,14 +30,10 @@ class DifficultyManager:
         if self.correct_streak >= 3:
             self.difficulty += 1
             self.correct_streak = 0
-
         elif self.incorrect_streak >= 3:
-
-            if self.difficulty < 2:
-                self.difficulty = 2
-            else:
-                self.difficulty -= 1
-                self.incorrect_streak = 0
+            # Ensure difficulty does not go below 2
+            self.difficulty = max(self.difficulty - 1, 2)
+            self.incorrect_streak = 0
 
     def get_difficulty(self):
         return self.difficulty

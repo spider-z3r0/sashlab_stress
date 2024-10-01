@@ -6,7 +6,7 @@ def main():
     print(check)
 
 
-def attention_check() -> bool:
+def attention_check() -> bool|None:
 
     try:
         answer = int(
@@ -15,7 +15,11 @@ def attention_check() -> bool:
     except ValueError as e:
         print("Please make sure you enter a single numeric charachter")
 
-    return answer == 7 - 2
+    try:
+        return answer == 7 - 2
+    except UnboundLocalError as e:
+        print("you must enter a valid integer (ie '5') only")
+        return False
 
 
 if __name__ == "__main__":
