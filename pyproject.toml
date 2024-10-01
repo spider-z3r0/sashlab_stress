@@ -23,7 +23,7 @@ keywords = ["stress", "psychology", "CLI"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: windows 10/windows 11",
+    "Operating System :: OS Independent",
 ]
 
     
