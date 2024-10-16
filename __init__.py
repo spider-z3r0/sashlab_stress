@@ -6,6 +6,7 @@ from .sashlab_stress.trial import trial
 from .sashlab_stress.Participant import Participant, MakeParticipant
 from .sashlab_stress.RoundInfo import Round
 from .sashlab_stress.log_rounds import log_session
+from .sashlab_stress.session_setup import session_setup
 
 
 __all__ = [
@@ -17,5 +18,6 @@ __all__ = [
     "Participant",
     "MakeParticipant",
     "Round",
-    "log_session"
+    "log_session",
+    "session_setup",
 ]

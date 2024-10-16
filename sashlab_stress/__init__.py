@@ -6,6 +6,7 @@ from .trial import trial
 from .Participant import Participant, MakeParticipant
 from .RoundInfo import Round
 from .log_rounds import log_session
+from .session_setup import session_setup
 
 __all__ = [
     "attention_check",
@@ -16,5 +17,6 @@ __all__ = [
     "Participant",
     "MakeParticipant",
     "Round",
-    "log_session"
+    "log_session",
+    "session_setup",
 ]
