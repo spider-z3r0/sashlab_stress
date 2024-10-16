@@ -16,7 +16,6 @@ def main():
     print(type(test2.start_time))
 
 
-
 class Participant:
     def __init__(
         self,

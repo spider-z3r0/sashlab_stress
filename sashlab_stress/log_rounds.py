@@ -7,9 +7,6 @@ import pathlib as pl
 import csv
 
 
-
-
-
 def main():
     print("testin' loggin'")
     start = datetime.now()
@@ -19,15 +16,20 @@ def main():
     sleep(3)
     r2 = Round(2, d.difficulty, (start - datetime.now()))
     p = MakeParticipant()
-    log_session(p, [r1,r2])
+    log_session(p, [r1, r2])
 
-def log_session(participant:Participant, data:list[Round], path:pl.Path = pl.Path().cwd()):
-    with open(path / f"{participant.id}.csv", mode = 'w', newline='') as file:
-        participant_writer = csv.DictWriter(file, fieldnames= participant.to_dict().keys())
+
+def log_session(
+    participant: Participant, data: list[Round], path: pl.Path = pl.Path().cwd()
+):
+    with open(path / f"{participant.id}.csv", mode="w", newline="") as file:
+        participant_writer = csv.DictWriter(
+            file, fieldnames=participant.to_dict().keys()
+        )
         participant_writer.writeheader()
         participant_writer.writerow(participant.to_dict())
 
-        file.write('\n\n')
+        file.write("\n\n")
 
         data_writer = csv.DictWriter(file, fieldnames=data[0].to_dict().keys())
         data_writer.writeheader()
@@ -35,6 +37,5 @@ def log_session(participant:Participant, data:list[Round], path:pl.Path = pl.Pat
             data_writer.writerow(row.to_dict())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-

@@ -1,10 +1,12 @@
 from .make_number import make_number
 from inputimeout import inputimeout, TimeoutOccurred
 
+
 def main():
     print("Let's run a trial")
     result = trial()
     print(result)
+
 
 def trial(difficulty: int = 2, n_seconds: int = 15) -> bool:
     if difficulty < 2:
@@ -27,6 +29,6 @@ def trial(difficulty: int = 2, n_seconds: int = 15) -> bool:
 
     return answer == x_val - y_val
 
+
 if __name__ == "__main__":
     main()
-

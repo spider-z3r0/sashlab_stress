@@ -4,8 +4,7 @@ import time
 import winsound
 
 
-
-def session_setup(time_limit:int, trial_time:int) -> Participant|None:
+def session_setup(time_limit: int, trial_time: int) -> Participant | None:
     print("Session set up:")
     print(f"Session duration: {time_limit/60} minutes")
     print(f"Trial timeout limit: {trial_time}")
@@ -27,4 +26,3 @@ def session_setup(time_limit:int, trial_time:int) -> Participant|None:
     except Exception as e:
         print(f"Could not set up session: {e}")
         return None
-

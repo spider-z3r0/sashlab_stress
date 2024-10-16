@@ -8,8 +8,9 @@ from datetime import datetime, timedelta
 import time
 
 
-
-def mental_subtraction(participant:Participant, time_limit:int, trial_time:int) -> list[Round]|None:
+def mental_subtraction(
+    participant: Participant, time_limit: int, trial_time: int
+) -> list[Round] | None:
     print(
         """
         In the next section subtraction problems will appear on screen. Please solve the problem by entering your answer to the problem and then pressing enter. Ensure to only enter numeric characters.\n
@@ -23,13 +24,15 @@ def mental_subtraction(participant:Participant, time_limit:int, trial_time:int) 
     clear_terminal()
 
     d = DifficultyManager()
-    round:int = 1
-    rounds:list[Round] = []
+    round: int = 1
+    rounds: list[Round] = []
 
     while True:
         clear_terminal()
-        if not (datetime.now() - participant.start_time) >= timedelta(seconds=time_limit):
-            r = Round(round ,d.difficulty, (datetime.now() - participant.start_time) )
+        if not (datetime.now() - participant.start_time) >= timedelta(
+            seconds=time_limit
+        ):
+            r = Round(round, d.difficulty, (datetime.now() - participant.start_time))
             try:
                 print(f"Round {round}")
                 print(f"You are playing at difficulty level {d.get_difficulty()-1}")
@@ -38,8 +41,8 @@ def mental_subtraction(participant:Participant, time_limit:int, trial_time:int) 
                 d.update_streaks(answer)
                 d.update_difficulty()
                 r.set_answer(answer)
-                round +=1 
-                
+                round += 1
+
                 time.sleep(1)
             except KeyboardInterrupt:
                 print("Finished testing")
@@ -55,4 +58,3 @@ def mental_subtraction(participant:Participant, time_limit:int, trial_time:int) 
             else:
                 print("This activity is finished")
                 return None
-

@@ -1,5 +1,3 @@
-
-
 def main():
     d = DifficultyManager()
     print(d.get_difficulty())
@@ -8,7 +6,7 @@ def main():
         d.update_streaks(answers)
     d.update_difficulty()
     print(d.get_difficulty())
-    
+
 
 class DifficultyManager:
     def __init__(self, difficulty: int = 2):
@@ -38,5 +36,6 @@ class DifficultyManager:
     def get_difficulty(self):
         return self.difficulty
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

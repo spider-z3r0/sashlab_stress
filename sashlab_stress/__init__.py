@@ -7,6 +7,7 @@ from .Participant import Participant, MakeParticipant
 from .RoundInfo import Round
 from .log_rounds import log_session
 from .session_setup import session_setup
+from .mental_subtraction import mental_subtraction
 
 __all__ = [
     "attention_check",
@@ -19,4 +20,5 @@ __all__ = [
     "Round",
     "log_session",
     "session_setup",
+    "mental_subtraction",
 ]

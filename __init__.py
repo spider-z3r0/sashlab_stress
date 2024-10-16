@@ -7,7 +7,7 @@ from .sashlab_stress.Participant import Participant, MakeParticipant
 from .sashlab_stress.RoundInfo import Round
 from .sashlab_stress.log_rounds import log_session
 from .sashlab_stress.session_setup import session_setup
-
+from .sashlab_stress.mental_subtraction import mental_subtraction
 
 __all__ = [
     "attention_check",
@@ -20,4 +20,5 @@ __all__ = [
     "Round",
     "log_session",
     "session_setup",
+    "mental_subtraction",
 ]

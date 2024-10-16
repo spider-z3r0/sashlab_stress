@@ -6,7 +6,7 @@ def main():
     print(check)
 
 
-def attention_check() -> bool|None:
+def attention_check() -> bool | None:
 
     try:
         answer = int(
