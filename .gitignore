@@ -165,6 +165,7 @@ cython_debug/
 ./.venv
 ./scratch.*
 ./dist/
+*.csv
 *__pycache__
 # Python cache directories
 __pycache__/
@@ -180,4 +181,5 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
 
