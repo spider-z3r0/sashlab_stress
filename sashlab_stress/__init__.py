@@ -5,7 +5,7 @@ from .difficulty_manager import DifficultyManager
 from .trial import trial
 from .Participant import Participant, MakeParticipant
 from .RoundInfo import Round
-from .log_rounds import log_session
+from .log_rounds import log_mental_subtraction_session, log_nef_neu_speech_session
 from .session_setup import session_setup
 from .mental_subtraction import mental_subtraction
 
@@ -18,7 +18,8 @@ __all__ = [
     "Participant",
     "MakeParticipant",
     "Round",
-    "log_session",
+    "log_mental_subtraction_session",
+    "log_nef_neu_speech_session",
     "session_setup",
     "mental_subtraction",
 ]

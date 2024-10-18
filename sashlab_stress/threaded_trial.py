@@ -1,4 +1,4 @@
-from .trial import trial
+rom .trial import trial
 import threading
 
 

@@ -1,4 +1,4 @@
-from .Participant import Participant
+from .Participant import Participant, MakeParticipant
 from .RoundInfo import Round
 from .difficulty_manager import DifficultyManager
 from .clear_prompt import clear_terminal
@@ -7,6 +7,12 @@ import keyboard as kb
 from datetime import datetime, timedelta
 import time
 
+def main():
+    p = MakeParticipant()
+    rounds:list[Round]|None = mental_subtraction(p, 60, 10)
+    if rounds:
+        for round in rounds:
+            print(round)
 
 def mental_subtraction(
     participant: Participant, time_limit: int, trial_time: int
@@ -49,7 +55,6 @@ def mental_subtraction(
                 break
             finally:
                 rounds.append(r)
-                return rounds
 
         else:
             if rounds:
@@ -58,3 +63,6 @@ def mental_subtraction(
             else:
                 print("This activity is finished")
                 return None
+
+if __name__ == '__main__':
+    main()

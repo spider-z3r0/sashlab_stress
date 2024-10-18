@@ -2,7 +2,7 @@ import argparse
 from .mental_subtraction import mental_subtraction
 from .session_setup import session_setup
 from .clear_prompt import clear_terminal
-from .log_rounds import log_session
+from .log_rounds import log_mental_subtraction_session, log_nef_neu_speech_session
 import pathlib as pl
 
 
@@ -48,7 +48,7 @@ def main():
         )
 
         if rounds:
-            log_session(participant, rounds, args.path)
+            log_mental_subtraction_session(participant, rounds, args.path)
 
 
 if __name__ == "__main__":

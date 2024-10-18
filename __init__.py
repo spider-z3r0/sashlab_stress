@@ -5,7 +5,7 @@ from .sashlab_stress.difficulty_manager import DifficultyManager
 from .sashlab_stress.trial import trial
 from .sashlab_stress.Participant import Participant, MakeParticipant
 from .sashlab_stress.RoundInfo import Round
-from .sashlab_stress.log_rounds import log_session
+from .sashlab_stress.log_rounds import log_mental_subtraction_session, log_nef_neu_speech_session
 from .sashlab_stress.session_setup import session_setup
 from .sashlab_stress.mental_subtraction import mental_subtraction
 
@@ -18,7 +18,8 @@ __all__ = [
     "Participant",
     "MakeParticipant",
     "Round",
-    "log_session",
+    "log_mental_subtraction_session",
+    "log_nef_neu_speech_session",
     "session_setup",
     "mental_subtraction",
 ]
