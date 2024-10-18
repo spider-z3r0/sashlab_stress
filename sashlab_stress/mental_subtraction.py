@@ -52,7 +52,8 @@ def mental_subtraction(
                 time.sleep(1)
             except KeyboardInterrupt:
                 print("Finished testing")
-                break
+                rounds.append(r)
+                return rounds
             finally:
                 rounds.append(r)
 

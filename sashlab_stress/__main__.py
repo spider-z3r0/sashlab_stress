@@ -1,5 +1,6 @@
 import argparse
 from .mental_subtraction import mental_subtraction
+from .neg_neu_speech_task import neg_neu_speech
 from .session_setup import session_setup
 from .clear_prompt import clear_terminal
 from .log_rounds import log_mental_subtraction_session, log_nef_neu_speech_session
@@ -36,19 +37,30 @@ def main():
         default=pl.Path().cwd(),
         help="The path where the session data will be saved",
     )
+    parser.add_argument(
+        "--condition",
+        type=int,
+        default=0,
+        help="The condition of the speech task 0 = Negative, 1 = Neutral",
+    )
     args = parser.parse_args()
 
     participant = session_setup(time_limit=args.time_limit, trial_time=args.trial_time)
 
     if participant:
-        print(f"ID: {participant.id}")
-
-        rounds = mental_subtraction(
-            participant, time_limit=args.time_limit, trial_time=args.trial_time
-        )
-
-        if rounds:
-            log_mental_subtraction_session(participant, rounds, args.path)
+        print(f"Participant ID: {participant.id}")
+        print(f"Attention Check Failures: {participant.attention_fails}")
+        if args.task_type == "mental-subtraction":
+            rounds = mental_subtraction(
+                participant, time_limit=args.time_limit, trial_time=args.trial_time
+            )
+            if rounds:
+                log_mental_subtraction_session(participant, rounds, args.path)
+        elif args.task_type == "neg-neu-speech":
+            rounds = neg_neu_speech(participant, args.condition, args.time_limit) 
+            log_nef_neu_speech_session(participant, rounds, args.path)
+        else:
+            raise ValueError("""The only available tasks are the mental subtraction task ('mental-subtraction') or the Negative/Neutral speech task ('neg-neu-speech')""")
 
 
 if __name__ == "__main__":

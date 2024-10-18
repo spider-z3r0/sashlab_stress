@@ -8,6 +8,7 @@ from .RoundInfo import Round
 from .log_rounds import log_mental_subtraction_session, log_nef_neu_speech_session
 from .session_setup import session_setup
 from .mental_subtraction import mental_subtraction
+from .neg_neu_speech_task import neg_neu_speech
 
 __all__ = [
     "attention_check",
@@ -22,4 +23,5 @@ __all__ = [
     "log_nef_neu_speech_session",
     "session_setup",
     "mental_subtraction",
+    "neg_neu_speech",
 ]

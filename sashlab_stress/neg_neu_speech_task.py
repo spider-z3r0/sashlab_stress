@@ -25,7 +25,7 @@ NEU_WORDS = [
 
 def main():
     p = MakeParticipant()
-    rounds:list[dict]|None = neg_neu_speech(p, 'negative', 60)
+    rounds:list[dict]|None = neg_neu_speech(p,0, 60)
     if rounds:
         for round in rounds:
             print(round)
@@ -34,12 +34,12 @@ def main():
 
 
 
-def neg_neu_speech(participant:Participant, condition:str, time_limit:int ):
-    if condition .lower().strip()  not in ['negative', 'neutral']:
-        raise ValueError("Condition can only be 'negative' or 'neutral'.")
-    elif condition .lower().strip() == 'negative':
+def neg_neu_speech(participant:Participant, condition:int, time_limit:int ):
+    if condition not in [0, 1]:
+        raise ValueError("Condition can only be '0'(negative) or '1'(neutral).")
+    elif condition == 0:
         words = NEG_WORDS
-    elif condition .lower().strip() == 'neutral':
+    elif condition == 1:
         words = NEU_WORDS
 
     task_start = datetime.now()
@@ -50,16 +50,23 @@ def neg_neu_speech(participant:Participant, condition:str, time_limit:int ):
         if not (datetime.now() - task_start) >= timedelta(
             seconds=time_limit
         ):
-            word = choice(words)
-            print("#############")
-            print(word)
-            print("#############")
+            try:
+                word = choice(words)
+                print("#############")
+                print(word)
+                print("#############")
 
-            start = datetime.now()
-            kb.wait(hotkey='spacebar')
-            duration = (datetime.now() - start)
-            rounds.append({'Round':round, 'Prompt': word, 'Duration': duration})
-            words.remove(word)
+                start = datetime.now()
+                kb.wait(hotkey='spacebar')
+                duration = (datetime.now() - start)
+                rounds.append({'Round':round, 'Prompt': word, 'Duration': duration})
+                words.remove(word)
+            except KeyboardInterrupt as e:
+                print('finish testing')
+                rounds.append({'Round':round, 'Prompt': word, 'Duration': duration})
+                return rounds
+            except Exception as e:
+                print(f"{e}")
         else:
             return rounds
 
