@@ -32,7 +32,9 @@ jobs:
           pip install hatch twine
 
       - name: Build the package
-        run: hatch build
+        run: |
+          cd ..
+          hatch build
         
 
         
