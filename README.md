@@ -20,8 +20,8 @@ The current script will run the available stress task for specified durations an
 
 ### Planned stressors
 
-- Digit Span Task
-- Nonsense Syllable Task
+- Digit Span 
+- Nonsense Syllable 
 
 ## Installation
 Ensure you have Python 3.12 or newer. To install the CLI, run:
