@@ -1,4 +1,5 @@
 
+
 # SASHLab Stress CLI
 
 ## Overview
@@ -7,21 +8,20 @@
 
 ## Features
 
-The curernt script will run the available stress task for specified durations and save the output to an easily mungable csv file.
+The current script will run the available stress task for specified durations and save the output to an easily mungable CSV file.
 
 ### Current stressors
 
- - Mental arithmatic task
-   - This is a mental subtraction task in which participants are asked to subtract digits in thier head under time pressure. The task difficulty will increase or decrease depending on a streak of correct or incorrect answers (the streak length is currently 3). 
+- **Mental Arithmetic Task**:
+  - A mental subtraction task where participants subtract digits under time pressure. Task difficulty adjusts based on streaks of correct or incorrect answers (streak length is 3).
 
+- **Negative/Neutral Speech Task**:
+  - A speech task where participants are asked to recall either negative or neutral experiences. The task condition (negative or neutral) is determined by the user.
 
 ### Planned stressors
 
- - digit span
- - nonsense syllable task
-
-
-
+- Digit Span Task
+- Nonsense Syllable Task
 
 ## Installation
 Ensure you have Python 3.12 or newer. To install the CLI, run:
@@ -29,23 +29,32 @@ Ensure you have Python 3.12 or newer. To install the CLI, run:
 ```sh
 pip install sashlab-stress
 ```
+
 ## Usage
-For the best results please make sure that you have pointed your terminal to the folder where you would like the participants data to be stored
+For the best results, ensure your terminal is pointed to the folder where you'd like participant data to be stored:
 
 ```sh
 cd <path/to/your/project/data>
 ```
-You can run the main functionality of **SASHLab Stress** using the following command with the [default options](#options) :
+
+Run the main functionality of **SASHLab Stress** with default options:
 
 ```sh
-sashlab_stress 
+sashlab_stress
 ```
 
 ### Examples
-- To run the basic mental arithmatic stress task:
+
+- To run the **mental arithmetic stress task**:
 
   ```sh  
     sashlab_stress --time-limit 600 --trial-time 20 --path ./data
+  ```
+
+- To run the **negative/neutral speech task** in neutral condition:
+
+  ```sh
+    sashlab_stress --task-type neg-neu-speech --condition 1 --time-limit 600 --path ./data
   ```
 
 - To show help and view available commands:
@@ -55,7 +64,11 @@ sashlab_stress
   ```
 
 ## Options
-Below are the command-line arguments supported by the **SASHLab Stress** CLI:
+
+- `--task-type`: The kind of task to run, either the mental subtraction task ('mental-subtraction') or the negative/neutral speech task ('neg-neu-speech').
+  - **Type**: `str`
+  - **Default**: `mental-subtraction`
+  - **Example**: `--task-type neg-neu-speech` (runs the speech task)
 
 - `--time-limit`: Set the time limit for the entire session in seconds.
   - **Type**: `int`
@@ -72,6 +85,11 @@ Below are the command-line arguments supported by the **SASHLab Stress** CLI:
   - **Default**: Current working directory (`cwd`)
   - **Example**: `--path ./data` (Saves session data to a folder named "data" in the current directory)
 
+- `--condition`: Set the condition for the speech task, with 0 representing negative condition and 1 representing neutral condition.
+  - **Type**: `int`
+  - **Default**: `0` (Negative condition)
+  - **Example**: `--condition 1` (Runs the task in neutral condition)
+
 ## Dependencies
 This project relies on the following packages:
 - **black** (>=24.8.0): For code formatting.
@@ -85,14 +103,11 @@ All dependencies will be installed automatically with the package.
 - Operating System: OS Independent
 
 ## Contributing
-Contributions are welcome! If you have ideas for new stress tasks or improvements, feel free to open an issue or submit a pull request on the [GitHub repository](URL_TO_REPOSITORY).
+Contributions are welcome! If you have ideas for new stress tasks or improvements, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/spider-z3r0/sashlab_stress/).
 
 ## Authors
 - **Kevin O'Malley** - [kevomalley743@gmail.com](mailto:kevomalley743@gmail.com)
 - **Sandra O'Brien** - [sandra.obrien@ul.ie](mailto:sandra.obrien@ul.ie)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Keywords
-`stress`, `psychology`, `CLI`his project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License
